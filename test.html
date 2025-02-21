@@ -416,18 +416,19 @@
         throw error;
       }
     }
-    
     document.getElementById("findBtn2").addEventListener("click", async () => {
       const resultDiv = document.getElementById("result2");
       resultDiv.style.display = "block";
-      resultDiv.innerHTML = `<p class="detail">데이터를 불러오고 위치를 확인 중입니다...</p>`;
+      resultDiv.innerHTML = `<p class="detail">데이터를 불러오고 위치를 확인 중입니다...</p>
+                             <p class="detail loading">스타벅스 매장 정보를 가져오는 중입니다...</p>`;
+    
       try {
         await loadMappingData();
         await loadDistrictPolygons();
         const position = await getCurrentLocation();
         const currentLat = position.coords.latitude;
         const currentLng = position.coords.longitude;
-        
+    
         const district = determineDistrict(currentLat, currentLng);
         let sido_cd = mappingData.sidoMapping["서울"]; // 기본값: 서울
         let gugun_cd;
@@ -439,20 +440,21 @@
           gugun_cd = "0119"; // 기본값: 중구
           districtMessage = "현재 위치가 어느 구에도 속하지 않아 기본값(중구)을 사용합니다.";
         }
-        
+    
         let finalHTML = `<p class="detail">현재 좌표: <span class="highlight">${currentLat.toFixed(5)}, ${currentLng.toFixed(5)}</span></p>
                          <p class="detail">${districtMessage}</p>
                          <p class="detail">(사용 코드: <span class="highlight">${sido_cd} / ${gugun_cd}</span>)</p>`;
-        finalHTML += `<p class="detail">스타벅스 매장 정보를 가져오는 중입니다...</p>`;
-        resultDiv.innerHTML = finalHTML;
-        
+    
+        resultDiv.innerHTML = finalHTML + `<p class="detail loading">스타벅스 매장 정보를 가져오는 중입니다...</p>`;
+    
         const stores = await fetchStarbucksStoresByDistrict(currentLat, currentLng, sido_cd, gugun_cd);
+    
         if (!stores || stores.length === 0) {
           finalHTML += `<p class="detail">매장 정보를 불러오지 못했습니다.</p>`;
           resultDiv.innerHTML = finalHTML;
           return;
         }
-        
+    
         const nearestStore = findNearestStore(stores, currentLat, currentLng);
         if (nearestStore) {
           finalHTML += `<p class="header">가장 가까운 스타벅스 매장</p>
@@ -462,11 +464,17 @@
         } else {
           finalHTML += `<p class="detail">좌표 정보를 찾을 수 없는 매장이 있습니다.</p>`;
         }
+    
+        // 응답을 받은 후 로딩 메시지 제거하고 최종 결과 표시
         resultDiv.innerHTML = finalHTML;
       } catch (error) {
         resultDiv.innerHTML = `<p class="detail">에러 발생: ${error.message}</p>`;
       }
     });
+    
+
+
+    ;
   </script>
   <script>
     document.getElementById("findBtn1").addEventListener("click", async () => {
@@ -494,7 +502,7 @@
       // 스타벅스 API 호출 예제
       setTimeout(() => {
         resultDiv.innerHTML = `<p class="detail">입력된 위치: <span class="highlight">${currentLat.toFixed(5)}, ${currentLng.toFixed(5)}</span></p>
-                               <p class="highlight">가장 가까운 스타벅스 매장</p>
+                               <p class="header">가장 가까운 스타벅스 매장</p>
                                <p>매장명: <span class="highlight">광화문우체국</span></p>
                                <p>주소: 서울특별시 종로구 서린동 154-1 광화문우체국</p>
                                <p>약 <span class="highlight">0.39 km</span> 떨어져 있습니다.</p>`;
