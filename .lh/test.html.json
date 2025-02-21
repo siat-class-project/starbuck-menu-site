@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 39,
+            "activePatchIndex": 43,
             "patches": [
                 {
                     "date": 1739941268096,
@@ -164,6 +164,22 @@
                 {
                     "date": 1740107224136,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -171,9 +171,9 @@\n \r\n   \r\n   <!-- [섹션 1] 직접 입력 방식 -->\r\n   <section id=\"section1\">\r\n-    <h1>내 위치 기반 스타벅스 매장 찾기 (직접 입력)</h1>\r\n+    <h1>경도 & 위도 기반 스타벅스 매장 찾기 (직접 입력)</h1>\r\n     <p>아래 입력란에 위도와 경도를 직접 입력한 후, 버튼을 눌러 해당 위치에서 가장 가까운 스타벅스를 확인합니다.</p>\r\n \r\n     <!-- 예시 좌표 영역 -->\r\n     <div class=\"sample\">\r\n"
+                },
+                {
+                    "date": 1740107303004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n       text-align: center;\r\n       display: flex;\r\n       flex-direction: column;\r\n       align-items: center;\r\n-      justify-content: center;\r\n+      <!-- justify-content: center; -->\r\n     }\r\n     h1 {\r\n       font-size: 26px;\r\n       font-weight: bold;\r\n"
+                },
+                {
+                    "date": 1740107362651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,14 +8,14 @@\n     body {\r\n       font-family: 'Noto Sans KR', Arial, sans-serif;\r\n       background-color: #f2f0eb;\r\n       margin: 0;\r\n-      padding: 20px;\r\n+      padding: 10px;\r\n       text-align: center;\r\n       display: flex;\r\n       flex-direction: column;\r\n       align-items: center;\r\n-      <!-- justify-content: center; -->\r\n+\r\n     }\r\n     h1 {\r\n       font-size: 26px;\r\n       font-weight: bold;\r\n"
+                },
+                {
+                    "date": 1740107373362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n     body {\r\n       font-family: 'Noto Sans KR', Arial, sans-serif;\r\n       background-color: #f2f0eb;\r\n       margin: 0;\r\n-      padding: 10px;\r\n       text-align: center;\r\n       display: flex;\r\n       flex-direction: column;\r\n       align-items: center;\r\n"
+                },
+                {
+                    "date": 1740107383934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n   <style>\r\n     body {\r\n       font-family: 'Noto Sans KR', Arial, sans-serif;\r\n       background-color: #f2f0eb;\r\n-      margin: 0;\r\n       text-align: center;\r\n       display: flex;\r\n       flex-direction: column;\r\n       align-items: center;\r\n"
                 }
             ],
             "date": 1739941268096,
