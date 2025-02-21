@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1740098499724,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740099587009,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n   <!--HEADER-->\n   <header>\n     <div class=\"inner\">\n \n-      <a href=\"main.html\" class=\"logo\">\n+      <a href=\"../main.html\" class=\"logo\">\n         <img src=\"../images/starbucks_logo.png\" alt=\"STARBUCKS\" />\n       </a>\n \n       <div class=\"sub-menu\">\n"
+                },
+                {
+                    "date": 1740099608472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n   <!--HEADER-->\n   <header>\n     <div class=\"inner\">\n \n-      <a href=\"../main.html\" class=\"logo\">\n+      <a href=\"/main.html\" class=\"logo\">\n         <img src=\"../images/starbucks_logo.png\" alt=\"STARBUCKS\" />\n       </a>\n \n       <div class=\"sub-menu\">\n"
                 }
             ],
             "date": 1740098499724,
